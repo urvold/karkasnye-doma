@@ -1,0 +1,7 @@
+
+/* Custom additions on top of Tailwind CDN */
+html { scroll-behavior: smooth; }
+.blur-backdrop { backdrop-filter: blur(8px); }
+.shadow-soft { box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+.card:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,.12); }
+.transition { transition: all .2s ease; }
