@@ -8,3 +8,5 @@ html{scroll-behavior:smooth}
 .stepper::before{content:"";position:absolute;left:0;right:0;top:24px;height:2px;background:#e5e7eb}
 .step{position:relative;text-align:center}
 .step .badge{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9999px;background:#111827;color:#fff;border:3px solid #fff;box-shadow:0 0 0 2px #e5e7eb;margin-bottom:.5rem}
+.aspect-video{aspect-ratio:16/9}
+img{display:block}

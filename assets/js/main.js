@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const modal = document.getElementById('project-modal');
       const data = JSON.parse(document.getElementById('projects-data').textContent);
       const p = data[id];
+      if (!p) return;
       modal.querySelector('[data-p-title]').textContent = p.name;
-      modal.querySelector('[data-p-meta]').textContent = `${p.area} • ${p.rooms} спальни • ${p.baths} санузла`;
+      const meta = [p.area, p.rooms ? `${p.rooms} спальни` : "", p.baths ? `${p.baths} санузла` : ""].filter(Boolean).join(' • ');
+      modal.querySelector('[data-p-meta]').textContent = meta;
       modal.querySelector('[data-p-price]').textContent = p.price;
       modal.querySelector('[data-p-desc]').textContent = p.desc;
-      modal.querySelector('[data-p-term]').textContent = p.term;
+      modal.querySelector('[data-p-term]').textContent = p.term || '';
       const img = card.querySelector('img');
       modal.querySelector('[data-p-img]').src = img ? img.src : '';
       modal.classList.remove('hidden');
@@ -27,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('project-modal').classList.add('hidden');
   });
 
-  // Quiz
+  // Quiz steps
   let step=0; const steps=[...document.querySelectorAll('.quiz-step')];
   const next=document.getElementById('quizNext'), prev=document.getElementById('quizPrev'), bar=document.getElementById('quizBar'), fin=document.getElementById('quizFinish');
   function render(){steps.forEach((s,i)=>s.classList.toggle('hidden',i!==step)); if(prev) prev.classList.toggle('invisible',step===0); if(next) next.classList.toggle('hidden',step===steps.length-1); if(fin) fin.classList.toggle('hidden',step!==steps.length-1); if(bar) bar.style.width=((step+1)/steps.length*100)+'%';}
